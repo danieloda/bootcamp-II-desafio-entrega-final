@@ -1,0 +1,14 @@
+services:
+  api:
+    build: ./apps/api
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./apps/api/.env
+
+  web:
+    build: ./apps/web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
